@@ -1,0 +1,29 @@
+on join:
+  toggle player's scoreboard to on
+  while player is online:
+    wait 2 ticks
+    set title of player's scoreboard to "&3Your&5Server &8● &d&lS1"
+    set line 15 of player's scoreboard to " "
+    set line 14 of player's scoreboard to " &a&lPLAYER"
+    set line 13 of player's scoreboard to " &8● &fBlocks: &3%{blocks::%player's uuid%} ? 0%"
+    set line 12 of player's scoreboard to " &8● &fKills: &3%{kills::%player's uuid%} ? 0%"
+    set line 11 of player's scoreboard to " &8● &fRank: &3%vault-prefix%"
+    set line 10 of player's scoreboard to " &8● &fDeaths: &3%{deaths::%player's uuid%} ? 0%"
+    set line 8 of player's scoreboard to " "
+    set line 7 of player's scoreboard to " &a&lSERVER"
+    set line 6 of player's scoreboard to " &8● &fJoins: &3%amount of {joins::*} ? 0%"
+    set line 5 of player's scoreboard to " &8● &fTPS: &3%first element of tps%"
+    set line 3 of player's scoreboard to " &8● &fOnline: &3%amount of players%/10"
+    set line 2 of player's scoreboard to " "
+    set line 1 of player's scoreboard to "&fYourServer.minehut.gg"
+    
+on break:
+    add 1 to {blocks::%player's uuid%}
+    
+on death:
+    add 1 to {kills::%attacker's uuid%}
+    
+on death:
+    add 1 to {deaths::%victim's uuid%}
+on join:
+    add 1 to {joins::*}
